@@ -1,6 +1,7 @@
 # Less trouble reading/writing images with OpenCV
 
 ```python
+$pip install a-cv-imwrite-imread-plus
 from a_cv_imwrite_imread_plus import add_imwrite_plus_imread_plus_to_cv2
 add_imwrite_plus_imread_plus_to_cv2()
 cv2.imwrite_plus("f:\\ö\\ö\\ö\\öädssdzß.jpg", base64img2cv)
