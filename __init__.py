@@ -201,7 +201,7 @@ cv2.imshow_thread(
     if isinstance(image, str):
         if os.path.exists(image):
             if os.path.isfile(image):
-                image = cv2.imread(image)
+                image = cv2.imread(image,cv2.IMREAD_UNCHANGED)
         elif re.search(r"^.{1,10}://", str(image)[:12]) is not None:
             x = requests.get(image).content
             image = cv2.imdecode(np.frombuffer(x, np.uint8), cv2.IMREAD_COLOR)
@@ -242,9 +242,9 @@ cv2.imshow_thread(
             else:
                 pass
         else:
-            if channels_in_output == 3:
+            if channels_in_output == 3 and len(image.shape) <3:
                 image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
-            if channels_in_output == 4:
+            if channels_in_output == 4 and len(image.shape) <3:
                 image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGRA)
 
     return image
