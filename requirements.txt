@@ -1,4 +1,7 @@
+Pillow
 numpy
 opencv_python
+opencv_python_headless
 requests
+tolerant_isinstance
 touchtouch
